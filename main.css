@@ -1,0 +1,489 @@
+/* 기본 스타일 */
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Pocus {
+  display: flex;
+  position: relative;
+  top: -300px;
+  left: -430px;
+  font-size: 60px;
+  font-weight: 600;
+  z-index: 13;
+  cursor: pointer;
+}
+
+.circle-container {
+  position: relative;
+  top: 0px;
+  left: -50px;
+  width: 400px;
+  height: 400px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* opacity: 0.9; */
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 2s ease, background-color 2s ease, opacity 2s ease;
+}
+/* .circle:hover {
+  opacity: 1; /* 마우스 오버 시 완전히 보이도록 설정 */
+/* z-index: 10;
+} */
+*/ .circle.expand {
+  cursor: default;
+  pointer-events: none;
+  /* transition: cursor 0.3s ease; */
+}
+.circle-text {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+}
+.pomo {
+  width: 350px;
+  height: 350px;
+  background-color: #26a69a;
+  top: -10%;
+  left: -20%;
+  font-size: 35px;
+}
+.pomo-count {
+  font-size: 70px;
+}
+.start {
+  position: relative;
+  top: -20px;
+  font-size: 40px;
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+
+.circle.custom {
+  width: 220px;
+  height: 220px;
+  background-color: #757575;
+  top: -10%;
+  left: 50%;
+  font-size: 25px;
+}
+
+.stopwatch {
+  width: 270px;
+  height: 270px;
+  background-color: #a0af70;
+  top: 40%;
+  left: 35%;
+  font-size: 30px;
+}
+
+.setting {
+  width: 100px;
+  height: 100px;
+  background-color: #e57373;
+  top: 70%;
+  left: 15%;
+  font-size: 20px;
+}
+
+/* 클릭된 원 배경 유지 */
+.pomo.expand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-110%, -90%) scale(3.5);
+  z-index: 10;
+  transition: transform 1s ease;
+}
+.custom.expand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-170%, -80%) scale(5.3);
+  z-index: 10;
+  transition: transform 1s ease;
+}
+.stopwatch.expand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -90%) scale(4);
+  z-index: 10;
+  transition: transform 1s ease;
+}
+.setting.expand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-360%, -100%) scale(11);
+  z-index: 10;
+  transition: transform 1s ease;
+}
+
+/* 숨겨진 콘텐츠 */
+.content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.content {
+  display: none; /*기본적으로 숨겨진 상태 */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  text-align: center;
+  z-index: 11;
+  color: #ffffff;
+}
+
+.content.active {
+  display: block; /* 활성화된 상태에서는 표시 */
+  opacity: 1; /* 점점 나타나도록 설정 */
+  pointer-events: auto;
+}
+.pomodoro {
+  display: flex;
+  position: relative;
+  top: -20px;
+  left: 0px;
+  font-size: 70pfx;
+  background: #26a69a;
+  gap: 35px;
+}
+.pomo-back {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.col {
+  font-size: 70px;
+}
+.min {
+  outline: none;
+  border: none;
+  background: #26a69a !important;
+  color: #ffffff;
+  font-size: 70px;
+  cursor: pointer;
+  padding-left: 30px; /* 왼쪽 여백 추가 */
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="black" d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat left 10px center; /* 화살표를 왼쪽에 배치 */
+}
+.sec {
+  font-size: 70px;
+}
+.min option {
+  font-size: 30px;
+  color: black;
+}
+.min.hidden {
+  display: none; /* 타이머 실행 중 select 숨김 */
+}
+.minute-display {
+  font-size: 70px;
+  width: 80px;
+  text-align: center;
+  display: none; /* 타이머 실행 전에는 숨김 */
+}
+.minute-display.active {
+  display: inline-block; /* 타이머 실행 중 표시 */
+}
+.custom {
+  display: flex;
+  position: absolute;
+  top: -50px;
+  left: -160px;
+  font-size: 90px;
+  gap: 30px;
+}
+.customBtn {
+  position: relative;
+  top: 80px;
+  left: -80px;
+  font-size: 40px;
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+#custom-stop {
+  position: relative;
+  top: 25px;
+  left: 60px;
+  font-size: 40px;
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+
+/* 모달 스타일 */
+
+.custom-timer-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  display: none;
+  border: 2px solid #a5a5a5; /* 초록 테두리 */
+}
+
+/* 모달 활성화 */
+.custom-timer-modal.active {
+  display: block;
+}
+.modal-overlay {
+  display: none; /* 기본적으로 숨김 */
+}
+
+.modal-overlay.active {
+  display: block; /* active 클래스가 추가되면 보이도록 설정 */
+}
+
+/* 모달 헤더 */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.modal-back,
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-close {
+  color: red;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.time-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.time-input {
+  width: 60px;
+  font-size: 1.2rem;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.time-input:focus {
+  border-color: #a5a5a5;
+  outline: none;
+}
+
+.time-select select {
+  width: 60px;
+  font-size: 1.2rem;
+  padding: 5px;
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.option {
+  width: 50px;
+  font-size: 1rem;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.option:focus {
+  border-color: #a5a5a5;
+  outline: none;
+}
+/* #custom-cycle {
+  position: relative;
+  left: 0px;
+} */
+#custom-rest {
+  margin-right: 6px; /* 체크박스와 Rest: 텍스트 간 간격 */
+}
+label span {
+  margin-right: 15px; /* Rest: 텍스트와 input 간의 간격 */
+}
+.cycle {
+  position: relative;
+  left: 0px;
+}
+.rest {
+  position: relative;
+  left: 3px;
+}
+/* rest-label 기본적으로 흐릿하게 처리 */
+label.disabled {
+  opacity: 0.2;
+  pointer-events: none; /* 클릭 불가 */
+  cursor: not-allowed; /* 선택 불가 커서 */
+}
+
+/* 활성화된 상태 */
+label.enabled {
+  opacity: 1;
+  pointer-events: auto; /* 클릭 가능 */
+  color: black;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#custom-message {
+  width: 100%;
+  font-size: 1rem;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* 크기 조정 비활성화 */
+}
+
+.modal-start {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  background: #a5a5a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal-start:hover {
+  background: #8d8c8c;
+}
+.stopwatch2 {
+  display: flex;
+  font-size: 80px;
+}
+.stopwatch-start {
+  position: relative;
+  top: -20px;
+  font-size: 40px;
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+.stopwatch-millisec {
+  position: relative;
+  top: -100px;
+  left: 175px;
+  font-size: 25px;
+}
+.hidden {
+  display: none;
+}
+
+.settings {
+  padding: 20px;
+  background-color: #e57373;
+  border-radius: 8px;
+  width: 300px;
+  margin: 0 auto;
+  z-index: 100;
+}
+.settings h2 {
+  font-size: 50px;
+}
+
+.setting-item {
+  margin-bottom: 15px;
+}
+
+.setting-item label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.setting-item input,
+.setting-item select {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+/* Default Light Theme */
+body.light {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text */
+}
+
+/* 설정된 다크모드에서 버튼, 폼 등의 요소 색상 */
+body.dark button {
+  background-color: #333333; /* Darker button */
+  color: #ffffff; /* White text on buttons */
+}
+
+body.dark input,
+body.dark select {
+  background-color: #222222; /* Darker input field */
+  color: #ffffff; /* White text inside inputs */
+  border: 1px solid #444444;
+}

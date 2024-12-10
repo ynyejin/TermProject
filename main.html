@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Circles</title>
+    <link rel="stylesheet" href="main.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <h1 href="#" id="main-logo" class="Pocus">Pocus</h1>
+    <div class="circle-container">
+      <div class="circle pomo" data-target="pomo-content">
+        <span class="circle-text">Pomodoro</span>
+      </div>
+      <div class="circle custom" data-target="screen-content">
+        <span class="circle-text">Custom Timer</span>
+      </div>
+      <div class="circle stopwatch" data-target="stopwatch-content">
+        <span class="circle-text">Stopwatch</span>
+      </div>
+      <div class="circle setting" data-target="setting-content">
+        <span class="circle-text">Setting</span>
+      </div>
+    </div>
+
+    <!-- Hidden Content -->
+    <div class="content-container">
+      <div class="content" id="pomo-content">
+        <div class="pomodoro">
+          <select class="min" name="minute">
+            <option value="25" selected>25</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+
+          <div class="minute-display">25</div>
+          <div class="col">:</div>
+          <div class="sec">00</div>
+        </div>
+        <div class="start">start</div>
+        <button class="pomo-back">&#x27F2;</button>
+      </div>
+      <div class="content" id="screen-content">
+        <div class="custom">
+          <div id="input-hour">00</div>
+          <div>:</div>
+          <div id="input-min">00</div>
+          <div>:</div>
+          <div id="input-sec">00</div>
+        </div>
+        <div class="customBtn">custom</div>
+        <div id="custom-stop">stop</div>
+      </div>
+      <div class="content" id="stopwatch-content">
+        <div class="stopwatch2">
+          <div class="stopwatch-hour">00</div>
+          <div>:</div>
+          <div class="stopwatch-min">00</div>
+          <div>:</div>
+          <div class="stopwatch-sec">00</div>
+        </div>
+        <div class="stopwatch-start">start</div>
+      </div>
+      <div class="content" id="setting-content">
+        <div class="settings" id="settings-screen">
+          <h2>Settings</h2>
+          <div class="setting-item"></div>
+          <div class="setting-item">
+            <label for="theme">Theme</label>
+            <select id="theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="setting-item">
+            <label for="default-pomodoro">Default Pomodoro Time</label>
+            <input
+              type="number"
+              id="default-pomodoro"
+              min="1"
+              max="60"
+              value="25"
+            />
+            <span>minutes</span>
+          </div>
+          <button id="reset-settings">Reset to Default</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay hidden"></div>
+
+    <div class="custom-timer-modal hidden">
+      <div class="modal-header">
+        <button class="modal-back">&#x27F2;</button>
+        <h2>Custom Timer</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="time-select">
+          <label for="custom-hour">Hour</label>
+          <input
+            type="number"
+            id="custom-hour"
+            class="time-input"
+            value="0"
+            min="0"
+            max="23"
+          />
+
+          <span>:</span>
+
+          <label for="custom-minute">Min</label>
+          <input
+            type="number"
+            id="custom-minute"
+            class="time-input"
+            value="0"
+            min="0"
+            max="59"
+          />
+
+          <span>:</span>
+
+          <label for="custom-second">Sec</label>
+          <input
+            type="number"
+            id="custom-second"
+            class="time-input"
+            value="0"
+            min="0"
+            max="59"
+          />
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox" id="custom-cycle" />
+            Cycle:
+            <input
+              type="number"
+              id="cycle-count"
+              class="option cycle"
+              value="0"
+              min="0"
+            />
+          </label>
+          <label>
+            <input type="checkbox" id="custom-rest" disabled />
+            Rest:
+            <input
+              type="number"
+              id="rest-time"
+              class="option rest"
+              value="0"
+              min="0"
+              disabled
+            />
+            min
+          </label>
+        </div>
+
+        <div class="message">
+          <label for="custom-message">Message</label>
+          <textarea id="custom-message" rows="2"></textarea>
+        </div>
+
+        <button class="modal-start">Start</button>
+      </div>
+    </div>
+  </body>
+</html>
