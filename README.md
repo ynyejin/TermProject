@@ -1,4 +1,4 @@
-# Pomodoro Time Manager
+# Pocus ( Pomodoro + focus )
 
 집중력 향상에 도움을 줄 수 있는 여러 타이머를 포함한 웹사이트 입니다.
 
@@ -32,5 +32,7 @@
    자신의 마음대로 타이머의 시간, cycle, 쉬는 시간을 설정할 수 있다.
 3. Stopwatch
    ![stopwatch timer](stopwatch.png)
-4. 시간을 측정할 때 사용할 수 있다.
-5. Setting - 다크모드를 설정할 수 있고 Pomodoro의 기본 값을 설정할 수 있다.
+   시간을 측정할 때 사용할 수 있다.
+4. Setting
+   ![setting](setting.png)
+   다크모드를 설정할 수 있고 Pomodoro의 기본 값을 설정할 수 있다.
